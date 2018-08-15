@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit(refVariable)" #refVariable="ngForm" >
+  First name:<br>
+  <input type="text"  name="firstname" [(ngModel)]="formData.name">
+  <br><br>
+  Email:<br>
+  <input type="text" name="email" [(ngModel)]="formData.email" >
+  <br><br>
+  Last name:<br>
+  <input type="text" name="username" [(ngModel)]="formData.username" >
+  <br><br>
+  Address:<br>
+  <input type="text" name="address" [(ngModel)]="formData.address" >
+  <br><br>
+  Phone:<br>
+  <input type="text" name="phone" [(ngModel)]="formData.phone" >
+  <br><br>
+  Website:<br>
+  <input type="text" name="website" [(ngModel)]="formData.website" >
+  <br><br>
+  Company:<br>
+  <input type="text" name="company" [(ngModel)]="formData.company" >
+  <br><br>
+
+  <input type="submit" > <input type="button" value="Update" (click)="updateValue(formData);"><input type="button" value="Clear" (click)="clearData(formData);">
+  </form>
+
+  <br><br><br>
+  <table style="width:100%">
+    <tr>
+      <th>UserName</th>
+      <th>Name</th> 
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let data of postDataFetch">
+      <td>{{data.username}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.company}}</td>
+      <td><button (click)="update(data)">Edit</button></td>
+    </tr>
+  </table>
